@@ -1,0 +1,10 @@
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.baseball-image {
+    background-image: url("screenshots/baseballField.jpg");
+    background-size: cover;
+}
