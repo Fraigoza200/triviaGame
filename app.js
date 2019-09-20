@@ -25,10 +25,10 @@ function setNextQuestion() {
     showQuestion(shuffledQuestions[currentQuestionsIndex])
 }
 function showQuestion(question){
-    questionElement.innerHTML = question.question
+    questionElement.innerText = question.question
     question.answers.forEach(answer => {
         const button = document.createElement('button')
-        button.innerHTML = answer.text
+        button.innerText = answer.text
         button.classList.add('btn')
         if (answer.correct) {
             button.dataset.correct = answer.correct
@@ -39,24 +39,24 @@ function showQuestion(question){
 }
 
 function resetState() {
-    clearStatusClass(document.body)
+    //clearStatusClass(document.body)
     nextButton.classList.add('hide')
-    while(answerButtonsElements.firstChild) {
+    while (answerButtonsElements.firstChild) {
         answerButtonsElements.removeChild(answerButtonsElements.firstChild)
     }
 }
 
-function selectAnswer() {
-    const selectedButtons = event.target
-    const correct = selectedButtons.dataset.correct
-    setStatusClass(document.body.correct)
-    Array.from(answerButtonsElement.children).forEach(button => {
+function selectAnswer(e) {
+    const selectedButton = e.target
+    const correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(answerButtonsElements.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
-    if(shuffledQuestions.length > currentQuestionsIndex + 1){ 
+    if (shuffledQuestions.length> currentQuestionsIndex + 1){
         nextButton.classList.remove('hide')
     } else {
-        startButton.innerText= 'Restart'
+        startButton.innerText = 'Restart'
         startButton.classList.remove('hide')
     }
 }
@@ -81,8 +81,19 @@ const questions = [
         question: 'How many outs are there in one inning?',
         answers: [
             {text:'6', correct: true},
-            {text:'3', correct: false}
+            {text:'3', correct: false},
+            {text: '9', correct: false},
+            {text:'5', correct: false}
         ]
 
+    },
+    {
+        question:'How many teams are there in Major League Baseball?',
+        answers: [
+            {text:'32', correct: true},
+            {text:'24', correct: false},
+            {text:'42', correct: false},
+            {text:'16', correct: false}
+        ]
     }
 ]
