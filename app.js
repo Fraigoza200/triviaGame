@@ -95,5 +95,23 @@ const questions = [
             {text:'42', correct: false},
             {text:'16', correct: false}
         ]
+    },
+    {
+        question: 'How many  defensive players are there on the field during each inning of play?',
+        answers: [
+           {text: '12', correct: false},
+           {text: '6', correct: false},
+           {text: '9', correct: true},
+           {text: '18', correct: false}
+        ]
+    },
+    {
+        question: 'Not including the Major Leagues, what accessories are used to hit the baseball?',
+        answers: [
+            {text:'bat', correct: true},
+            {text: 'broom stick', correct: true},
+            {text: 'metal batl', correct: true},
+            {text: 'A persons hand', correct: false}
+        ]
     }
 ]
